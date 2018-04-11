@@ -27,6 +27,7 @@ Member::~Member(){
 void Member::follow(Member &i_want_follow_after){
     int i;
     bool flag=true;
+    if(this==&i_want_follow_after){flag=false;}
     for(i=0;i<I_follow.size();i++){
         if(I_follow[i]==&i_want_follow_after){
         i=I_follow.size();
