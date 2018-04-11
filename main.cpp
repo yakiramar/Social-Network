@@ -1,8 +1,7 @@
-
 #include <iostream>
 using namespace std;
-
-#include "Member.cpp"
+#include <cassert>
+#include "Member.h"
 
 
 Member avi, beni, chana;
@@ -11,9 +10,14 @@ void test1() {
 	Member dana;
 	chana.follow(dana);
 	dana.follow(avi);
-	cout << "  " << chana.numFollowers() << " " <<  chana.numFollowing() << endl; // 0 1
-	cout << "  " << avi.numFollowers() << " " <<  avi.numFollowing() << endl; // 1 0
-	cout << "  " << Member::count() << endl; // 4
+	
+	// cout << "  " << chana.numFollowers() << " " <<  chana.numFollowing() << endl; // 0 1
+	// cout << "  " << avi.numFollowers() << " " <<  avi.numFollowing() << endl; // 1 0
+	// cout << "  " << Member::count() << endl; // 4
+	
+	assert(chana.numFollowers() == 0 && chana.numFollowing() == 1);
+	assert(avi.numFollowers() == 1 && avi.numFollowing() == 0);
+	assert(Member::count() == 4);
 }
 
 int main() {
