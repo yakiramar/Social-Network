@@ -1,12 +1,12 @@
 #include "Member.hpp"
 
-int Member:: counter = 0;
-Member::Member(){
+int Member:: counter = 0;//count the members
+Member::Member(){//constructor
     counter++;
     m_numFollowers=0;
     m_numFollowing=0;
 }
-Member::~Member(){
+Member::~Member(){//disructor
     if(counter>0)
     {counter--;
     for(int i=0;i<m_numFollowers;i++)
@@ -19,11 +19,11 @@ Member::~Member(){
     }
     }
 }
-void Member::follow(Member &i_want_follow_after){
+void Member::follow(Member &i_want_follow_after){//function to follow after member
     int i;
     bool flag=true;
     for(i=0;i<I_follow.size();i++){
-        if(I_follow[i]==&i_want_follow_after){
+        if(I_follow[i]==&i_want_follow_after){//check if i not already follow after this member
         i=I_follow.size();
         flag=false;
       }
@@ -41,7 +41,7 @@ void Member::follow(Member &i_want_follow_after){
     }
 }
 
-void Member::unfollow(Member &i_want_unfollow){
+void Member::unfollow(Member &i_want_unfollow){//function to unfollow member
     int i;
     for(i=0;i<I_follow.size();i++){
     if(I_follow[i]==&i_want_unfollow){
