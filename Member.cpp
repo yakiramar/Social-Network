@@ -1,12 +1,17 @@
-#include "Member.hpp"
+#include<iostream>
+#include "Member.h"
+#include<string>
+#include<vector>
+using namespace std;
 
-int Member:: counter = 0;//count the members
-Member::Member(){//constructor
+
+int Member:: counter = 0;
+Member::Member(){
     counter++;
     m_numFollowers=0;
     m_numFollowing=0;
 }
-Member::~Member(){//disructor
+Member::~Member(){
     if(counter>0)
     {counter--;
     for(int i=0;i<m_numFollowers;i++)
@@ -19,11 +24,11 @@ Member::~Member(){//disructor
     }
     }
 }
-void Member::follow(Member &i_want_follow_after){//function to follow after member
+void Member::follow(Member &i_want_follow_after){
     int i;
     bool flag=true;
     for(i=0;i<I_follow.size();i++){
-        if(I_follow[i]==&i_want_follow_after){//check if i not already follow after this member
+        if(I_follow[i]==&i_want_follow_after){
         i=I_follow.size();
         flag=false;
       }
@@ -41,7 +46,7 @@ void Member::follow(Member &i_want_follow_after){//function to follow after memb
     }
 }
 
-void Member::unfollow(Member &i_want_unfollow){//function to unfollow member
+void Member::unfollow(Member &i_want_unfollow){
     int i;
     for(i=0;i<I_follow.size();i++){
     if(I_follow[i]==&i_want_unfollow){
